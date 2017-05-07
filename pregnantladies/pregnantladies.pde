@@ -16,13 +16,11 @@ int h = 800;
 float p1x, p1y;
 float p2x, p2y;
 float p3x, p3y;
-boolean goodForPoster = true;
-
 int vSz = 6;
 
 void setup() {
   output = createWriter("data.txt");
-  output.println("image name, cx, cy, r, goodForPoster");
+  output.println("image name, cx, cy, r");
   f = createFont("Roboto-Medium", 22);
   size(800, 800);
   strokeWeight(2);
@@ -79,13 +77,9 @@ boolean mouseInPoint(float x, float y, float px, float py) {
 }
 
 void keyPressed() {
-  if (key == 'f') {
-    goodForPoster = false;
-  }
   if (key == ' ') {
     if (numPointsDrawn == 3) {
-       output.println(imgNum + ".jpg, " + cx + ", " + cy + ", " + r + ", " + goodForPoster);
-       goodForPoster = true;
+       output.println(imgNum + ".jpg, " + cx + ", " + cy + ", " + r);
        save(imgNum + ".jpg");
     }  
     
